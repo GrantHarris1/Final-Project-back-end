@@ -9,6 +9,9 @@ class Book extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'description', 'publication_year'];
+
+    protected $with = ["author"];
+
     public function author(){
         return $this->hasManyThrough(
             '\App\Models\Author',

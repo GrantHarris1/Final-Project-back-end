@@ -18,12 +18,11 @@ use App\Http\Controllers\BooksController;
 Route::get('/test', function(Request $request){
     return 'Authenticated';
 });
-
 Route::middleware('auth:api')->prefix('v1')->group(function() {
     Route::get('/user', function(Request $request){
         return $request->user();
     });
-    Route::apiResource('/authors', AuthorsController::class);
+    Route::apiResource('/authors', AuthorsController::class); // GET, POST, PUT, DELETE
     Route::apiResource('/books', BooksController::class);
 });
 
