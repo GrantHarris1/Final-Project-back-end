@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tool;
 
+
 class Brand extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
 
-     /**
-     * Get the tools for the brand.
-     */
+
+    //protected $with = ['tools'];
     public function tools()
     {
         return $this->hasMany(Tool::class);

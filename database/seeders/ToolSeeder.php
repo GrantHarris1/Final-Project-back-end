@@ -18,7 +18,7 @@ class ToolSeeder extends Seeder
         for ($i=0; $i < count($tools); $i++) {
             $tool = new Tool();
             $tool -> name = $tools[$i];
-            $tool->brand_id = 1;
+            $tool->brand_id = \App\Models\Brand::all()->random()->get()[0]->id;
             $tool -> save();
         }
     }

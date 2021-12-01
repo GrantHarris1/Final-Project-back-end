@@ -11,6 +11,7 @@ class Tool extends Model
     use HasFactory;
     protected $fillable = ['name', 'brand_id', 'img_url'];
 
+    protected $with = ['brand'];
      /**
      * Get the brand that owns the tool.
      */
