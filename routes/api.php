@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ToolStatusController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\Log;
 /*
@@ -23,6 +24,7 @@ Route::prefix('v1')->group(function() {
         Route::get('/user', function(Request $request){
             return $request->user();
         });
+        Route::get('/checkedoutbyid', [ToolStatusController::class, 'checkedOutByUserId']);
     });
 
     // dont need to be logged in

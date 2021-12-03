@@ -14,4 +14,9 @@ class ToolStatus extends Model
     {
         return $this->belongsTo(Tool::class);
     }
+
+public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

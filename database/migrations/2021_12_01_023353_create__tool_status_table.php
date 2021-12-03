@@ -15,6 +15,12 @@ class CreateToolSatusTable extends Migration
     {
         Schema::create('_tool_satus', function (Blueprint $table) {
             $table->id();
+            $table->varchar('condition_checkout');
+            $table->varchar('condition_checkin');
+            $table->foreignId('user_id');
+            $table->foreignId('tool_id');
+            $table->timestamp('checkout_date');
+            $table->timestamp('checkin_date');
             $table->timestamps();
         });
     }
