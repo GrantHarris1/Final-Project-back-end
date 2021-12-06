@@ -14,7 +14,8 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
-        $brands = ['Dewalt','Milwaukee','Bosch','Greenlee','Klein'];
+        $brands = ['Dewalt','Milwaukee','Bosch','Greenlee','Klein', 'Hitli', 'Rigid', 'Ryobi',
+                    'Makita', 'Craftsman','Skil','Dremel'];
         for ($i=0; $i < count($brands); $i++) {
             $brand = new Brand();
             $brand -> name = $brands[$i];
