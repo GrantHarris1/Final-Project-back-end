@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -18,13 +19,20 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function logout(Request $request)
+    public function logout()
     {
-        if (Auth::check()) {
-            $request->user()->token()->revoke();
-            return response()->json(['success' => 'logout success'], 200);
+        if (Auth::user()) {
+        $user = Auth::user()->token();
+        $user->revoke();
+        return response()->json([
+            'success' => true,
+            'message' => 'Logout successfully',
+        ]);
         } else {
-            return response()->json(['error' => 'something went wrong'], 500);
+        return response()->json([
+            'success' => false,
+            'message' => 'Unable to Logout',
+        ]);
         }
     }
 }

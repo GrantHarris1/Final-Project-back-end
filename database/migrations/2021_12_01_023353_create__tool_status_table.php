@@ -13,14 +13,14 @@ class CreateToolStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('tool_satus', function (Blueprint $table) {
+        Schema::create('tool_status', function (Blueprint $table) {
             $table->id();
-            $table->string('condition_checkout');
-            $table->string('condition_checkin');
+            $table->string('condition_checkout')->nullable();
+            $table->string('condition_checkin')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('tool_id');
-            $table->dateTime('checkout_date');
-            $table->dateTime('checkin_date');
+            $table->dateTime('checkout_date')->nullable();
+            $table->dateTime('checkin_date')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateToolStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tool_satus');
+        Schema::dropIfExists('tool_status');
     }
 }

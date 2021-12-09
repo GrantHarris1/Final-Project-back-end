@@ -29,8 +29,8 @@ Route::prefix('v1')->group(function() {
         Route::get('/user', function(Request $request){
             return $request->user();
         });
-        Route::get('/checkedoutbyid', [ToolStatusController::class, 'checkedOutByUserId']);
-        Route::get('/logout', [UserController::class, 'logout']);
+        Route::get('/checkout', [ToolStatusController::class, 'checkOutByUserId']);
+        Route::post('/logout', [UserController::class, 'logout']);
     });
 
     // dont need to be logged in
